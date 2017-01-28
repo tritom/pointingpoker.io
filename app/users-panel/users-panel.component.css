@@ -1,0 +1,25 @@
+.user {
+  font-family: 'Ubuntu', sans-serif;
+  color: #D9B310;
+  padding: 5px 12px 5px 20px;
+  margin: 1px 1px 1px 1px;
+}
+
+.user span {
+  color: white;
+  padding: 0px 10px 0px 0px;
+}
+
+.usersPanel {
+  width: 100%;
+  padding: 20px 0px 20px 0px;
+  opacity: 0.9;
+  background: #1D2731;
+  border-radius: 20px;
+  -webkit-border-radius: 20px; 
+  -moz-border-radius: 20px;
+  box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
+  -webkit-box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
+  -moz-box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
+  border: 2px solid #999;
+}
