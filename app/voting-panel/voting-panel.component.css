@@ -27,13 +27,14 @@
   float: left;
   background: #1D2731;
   text-align: center;
-  border: 3px solid #999;
+  border: 2px solid #999;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
   -webkit-box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
   -moz-box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
+  opacity:0.8;
 }
 
 .point span {

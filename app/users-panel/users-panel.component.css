@@ -1,6 +1,7 @@
 .user {
   font-family: 'Ubuntu', sans-serif;
   color: #D9B310;
+  font-size: 16px;
   padding: 5px 12px 5px 20px;
   margin: 1px 1px 1px 1px;
 }
@@ -12,8 +13,9 @@
 
 .usersPanel {
   width: 100%;
+  margin-top: 10px;
   padding: 20px 0px 20px 0px;
-  opacity: 0.9;
+  opacity: 0.8;
   background: #1D2731;
   border-radius: 20px;
   -webkit-border-radius: 20px; 

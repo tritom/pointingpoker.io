@@ -10,6 +10,9 @@ h1 {
   color: #fff;
   font-family: 'Lobster', cursive;
   text-align: center;
+  text-shadow: 4px 4px 5px rgba(0,0,0,0.65);
+  -webkit-text-shadow: 3px 4px 5px rgba(0,0,0,0.65);
+  -moz-text-shadow: 3px 4px 5px rgba(0,0,0,0.65);
 }
 
 h2, h3 {
@@ -17,18 +20,51 @@ h2, h3 {
   font-family: 'Ubuntu', sans-serif;
   font-weight: lighter;
 }
+
+.navbar-default .navbar-brand {
+  font-size: 36px;
+  color: #1D2731;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  border: 1px;
+  padding-left: 40px;
+  padding-top:30px;
+}
+
+.navbar-default {
+  color: white;
+  height: 70px;
+  /* background: #1D2731; */
+  background: #D9B310;
+  border: 0px; 
+  opacity: .9; 
+  border-radius: 0px;
+}
+
 body {
+  
   background-color: #F8EEE7;
 }
 .header-top {
-  height: 0.75em;
+  height: 2.75em;
   background-color: #1D2731;
 }
 .gradient {
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #0B3C5D, #328CC1); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #0B3C5D, #328CC1); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #0B3C5D, #328CC1); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #0B3C5D, #328CC1) /* Standard syntax */
+  /*background: url("http://localhost:3000/bg.jpg")  no-repeat center center fixed ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  */
+    /* 71b4da */
+   background: #328CC1; /* For browsers that do not support gradients */
+   background: #0B3C5D; /* For browsers that do not support gradients */
+   background: -webkit-linear-gradient(left top, #0B3C5D, #328CC1); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(bottom right, #0B3C5D, #328CC1); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(bottom right, #0B3C5D, #328CC1); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(to bottom right,#328CC1, #0B3C5D) /* Standard syntax */
 }
-
+.subnav {
+  margin: 30px 0px 30px 0px;
+  background:#1D2731; 
+}
