@@ -5,6 +5,7 @@ import { DebugElement }    from '@angular/core';
 import { UsersPanelComponent } from './users-panel.component';
 import { User } from '../models/user';
 import { Role } from '../models/role';
+import { SessionState } from '../models/session-state';
 
 describe('UsersPanelComponent (inline template)', () => {
 
@@ -13,10 +14,10 @@ describe('UsersPanelComponent (inline template)', () => {
   let de:      DebugElement;
   let el:      HTMLElement;
   const testUsers : User[] = [
-    {id: 1, name: "tommy", role: Role.Moderator},
-    {id: 2, name: "tom", role: Role.VotingModerator},
-    {id: 3, name: "james", role: Role.Voter},
-    {id: 4, name: "george", role: Role.Observer}
+    {id: 'u1', name: "tommy", role: Role.Moderator},
+    {id: 'u2', name: "tom", role: Role.VotingModerator},
+    {id: 'u3', name: "james", role: Role.Voter},
+    {id: 'u4', name: "george", role: Role.Observer}
   ];  
 
   beforeEach( async( () => {
@@ -65,5 +66,48 @@ describe('UsersPanelComponent (inline template)', () => {
     de = fixture.debugElement.query(By.css('.glyphicon-eye-open'));    
     expect(de).not.toBeNull();
   });
+
+  describe('when state is VoteInProgress', () => { 
+
+    beforeEach( () => {
+      comp.state = SessionState.VoteInProgress;
+    });
+
+    it('should have voted marker for voter', () => {
+      comp.users = [testUsers[2]];
+      comp.voted = [testUsers[2].id]; 
+      fixture.detectChanges();
+      de = fixture.debugElement.query(By.css('.voted'));    
+      expect(de).not.toBeNull();
+    });
+
+    it('should have no-vote marker for observers', () => {
+      comp.users = [testUsers[3]];
+      comp.voted = [testUsers[2].id]; 
+      fixture.detectChanges();
+      de = fixture.debugElement.query(By.css('.no-vote'));    
+      expect(de).not.toBeNull();
+    });
+
+  }); 
   
+  describe('when state is not VoteInProgress', () => { 
+
+    beforeEach( () => {
+      comp.state = SessionState.PreVoteOptions;
+    });
+
+    it('should not show vote status', () => {
+      comp.users = [testUsers[3], testUsers[2]];
+      comp.voted = [testUsers[2].id]; 
+      fixture.detectChanges();
+      
+      de = fixture.debugElement.query(By.css('.voted'));    
+      expect(de).toBeNull();
+      
+      de = fixture.debugElement.query(By.css('.no-vote'));    
+      expect(de).toBeNull();
+    });
+
+  }); 
 });

@@ -7,8 +7,8 @@ import { VotingRound } from './voting-round';
 export class Session {
   sessionId: string;
   state: SessionState = SessionState.PreVoteOptions;
-  user?: User;
-  participants?: User[];
+  currentUser: User;
+  users: User[];
   pointScheme : PointScheme;
   votingRound?: VotingRound;
 }

@@ -5,9 +5,9 @@
   }
   .point {
     margin: 1px 1px 15px 15px;
-    padding: 35px 0px 0px 0px;
-    width: 120px;
-    height: 120px;
+    padding: 25px 0px 0px 0px;
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -25,20 +25,35 @@
 
 .point {
   float: left;
-  background: #1D2731;
+  background: #00303F;
   text-align: center;
-  border: 2px solid #999;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
-  -webkit-box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
-  -moz-box-shadow: 4px 4px 18px -1px rgba(0,0,0,0.45);
-  opacity:0.8;
+  opacity:0.9;
 }
 
-.point span {
+.point-label {
   font-family: 'Lobster', cursive;
-  color: white;
+}
+
+.glyphicon {
+  margin-top:5px;
+}
+
+.point-label, .glyphicon {
+  color: #FFF;
   font-size: 30px;
+}
+
+.point.selected, .point.selected .point-label {
+  background: #fff;
+  color: #00303F;
+}
+
+.point:hover, .point:hover .point-label, .point:hover .glyphicon {
+  color: #00303F;
+  background: #fff;
+  border: 2px;
+  border-color: #00303F;
 }
