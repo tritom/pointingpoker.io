@@ -39,12 +39,21 @@ const SESSION : Session = {
 @Component({
     selector: 'my-app',
     template: `
-      <session-panel [session]="session">
-      </session-panel>
+      <div *ngIf="!session">
+        <start-panel (join)="onJoin($event)"></start-panel>
+      </div>
+      <div *ngIf="session">
+        <session-panel [session]="session"></session-panel>
+      </div>
     `
 })
 
 export class AppComponent { 
-  session = SESSION;
+  session : Session;
   states = SessionState;
+
+  onJoin(sessionId:String) {
+    this.session = SESSION; 
+  }
+
 }

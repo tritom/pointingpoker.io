@@ -46,14 +46,14 @@
   font-size: 30px;
 }
 
+.point:hover, .point:hover .point-label, .point:hover .glyphicon,
 .point.selected, .point.selected .point-label {
   background: #fff;
   color: #00303F;
 }
 
-.point:hover, .point:hover .point-label, .point:hover .glyphicon {
-  color: #00303F;
-  background: #fff;
-  border: 2px;
+.point:hover, .point.selected {
+  border: 2px solid;
   border-color: #00303F;
 }
+

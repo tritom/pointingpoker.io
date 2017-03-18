@@ -9,17 +9,17 @@ import { SessionState } from '../models/session-state';
     selector: 'session-panel',
     template: `
       <div class="header row">
-        <div class="col-md-12">
+        <div *ngIf="voteInProgress()" class="col-md-12">
           <h3><span class="glyphicon glyphicon-ok-circle"></span> Cast Your Vote </h3>
           <hr>
         </div>
       </div>
       <div class="action row">
-        <div class="col-xs-5 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-3">
           <users-panel [state]="session.state" [users]="session.users" [voted]="voted">
           </users-panel>
         </div>
-        <div *ngIf="session.state === states.VoteInProgress" class="col-xs-7 col-sm-6 col-md-8">
+        <div *ngIf="voteInProgress()" class="col-xs-12 col-sm-6 col-md-8">
           <voting-panel [points]="session.pointScheme.points"
                         (vote) = "onVote($event)" >
           </voting-panel>
@@ -33,6 +33,10 @@ export class SessionPanelComponent {
   @Input() session : Session;
   states = SessionState;
   voted : String[] = [];
+
+  voteInProgress() {
+    return this.session.state === SessionState.VoteInProgress;
+  }
 
   onVote(point:Point) {
     if (point) {

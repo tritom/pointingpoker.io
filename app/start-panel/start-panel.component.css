@@ -1,0 +1,70 @@
+
+@media all and (min-width: 600px) {
+  .start-column {
+    height: 200px;
+    padding: 40px ;
+    margin: 20px;
+  }
+  .container {
+    padding: 60px 50px 60px 50px;
+  }
+  .join-button, .create-button {
+    font-size: 28px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .start-column {
+    height: 150px;
+    padding: 20px;
+    margin: 10px;
+  }
+  .container {
+    padding: 30px 0px 30px 0px;
+  }
+  .join-button, .create-button {
+    font-size: 22px;
+  }
+}
+
+.start-column {
+  border-radius: 10px;
+  background-color: rgba(0,0,0,.65);
+  color: #fff;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  border-radius: 10px;
+  background: url("http://localhost:3000/bg.jpg")  no-repeat center center fixed ;
+}
+
+.join-button, .create-button {
+  padding: 10px 25px 10px 25px;
+  font-family: 'Ubuntu', sans-serif;
+  border-radius: 5px;
+  background: #DCAE1D;
+  color: #FFF;
+  cursor: pointer; cursor: hand;
+}
+
+.join-button {
+  width: 50%;
+}
+
+.create-button {
+  width: 90%;
+}
+
+input {
+  font-family: 'Ubuntu', sans-serif;
+  color: #333;
+  font-size: 18px;
+  width: 95%;
+  padding: 5px 5px 2px 10px;
+  border-radius: 3px;
+  margin-right: 20px;
+}
