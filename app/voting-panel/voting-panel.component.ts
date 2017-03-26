@@ -5,15 +5,13 @@ import { Point } from '../models/point';
     selector: 'voting-panel',
     template: `
         <div class="votingPanel"> 
-          <a href="#" >
-            <div *ngFor="let point of points" class="point" (click) = "select(point)" 
-                  [ngClass]="{selected : point == selectedPoint}">
-              <span class="point-label">{{point.label}}</span>
-            </div>
-            <div class="point" (click) = "select(null)" alt="Clear Vote">
-              <span class="glyphicon glyphicon-repeat"></span>
-            </div>
-          </a>
+          <div *ngFor="let point of points" class="point" (click) = "select(point)" 
+                [ngClass]="{selected : point == selectedPoint}">
+            <span class="point-label">{{point.label}}</span>
+          </div>
+          <div class="point" (click) = "select(null)" alt="Clear Vote">
+            <span class="glyphicon glyphicon-repeat"></span>
+          </div>
         </div>
     `,
     styleUrls:['app/voting-panel/voting-panel.component.css']

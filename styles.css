@@ -22,7 +22,8 @@ h2 {
 
 .navbar-default .navbar-brand {
   font-size: 36px;
-  color: #00303F;
+  color: #DCAE1D;
+  /* font-family: 'Lobster', cursive; */
   font-family: 'Lobster', cursive;
   text-align: center;
   border: 1px;
@@ -33,8 +34,8 @@ h2 {
 .navbar-default {
   color: white;
   height: 70px;
-  /* background: #1D2731; */
-  background: #DCAE1D;
+  background: #141311; 
+  /* background: #DCAE1D; */
   border: 0px; 
   opacity: .9; 
   border-radius: 0px;

@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
-import { Role } from './models/role';
-import { User } from './models/user';
-import { Point } from './models/point';
-import { Session } from './models/session';
-import { SessionState } from './models/session-state';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+
+import { Role } from '../models/role';
+import { User } from '../models/user';
+import { Point } from '../models/point';
+import { PointScheme } from '../models/point-scheme';
+import { Session } from '../models/session';
+import { SessionState } from '../models/session-state';
 
 const USERS : User [] = [
  {id: '1', name: "Tommy", role: Role.VotingModerator},
@@ -14,7 +18,7 @@ const USERS : User [] = [
  {id: '6', name: "Petro", role: Role.Observer}
 ]
 
-const POINTS : Point [] = [ 
+const POINTS : Point [] = [
  {id: 1, value: 1, label: "1"},
  {id: 2, value: 2, label: "2"},
  {id: 3, value: 3, label: "3"},
@@ -36,19 +40,14 @@ const SESSION : Session = {
  votingRound: { votes: {} }
 }
 
-@Component({
-    selector: 'my-app',
-    template: `
-       <router-outlet></router-outlet>
-    `
-})
+let sessionPromise = Promise.resolve(SESSION);
 
-export class AppComponent { 
-  session : Session;
-  states = SessionState;
-
-  onJoin(sessionId:String) {
-    this.session = SESSION; 
+@Injectable()
+export class SessionService {
+  getSession(id: number | string): Observable<Session> {
+    var sessionObservable = new Observable((observer:Observer<Session>) => {
+      observer.next(SESSION);
+    })
+    return sessionObservable;
   }
-
 }

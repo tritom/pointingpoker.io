@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
     selector: 'start-panel',
@@ -24,10 +25,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class StartPanelComponent { 
-  @Output() join = new EventEmitter();
 
+  constructor(private router: Router) {};
+  
   joinSession(id:String) {
-    this.join.emit(id);
+    if(id && !!id.trim()) {
+      this.router.navigate(['/session', id]);    
+    }
   } 
 }
 
