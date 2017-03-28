@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { SessionService } from './session-service';
 import { Role } from '../models/role';
@@ -34,19 +35,21 @@ import { SessionState } from '../models/session-state';
 })
 
 
-export class SessionPanelComponent { 
+export class SessionPanelComponent implements OnInit{ 
   session : Session;
   states = SessionState;
-  connection: any;
+  paramsSub: any
+  sessionSub: any;
   voted : String[] = [];
 
-  constructor(private sessionService:SessionService) {}
+  constructor(private sessionService: SessionService, private route: ActivatedRoute) {}
 
   voteInProgress() {
     return this.session.state === SessionState.VoteInProgress;
   }
 
-  onVote(point:Point) { if (point) {
+  onVote(point:Point) { 
+    if (point) {
       this.session.votingRound.votes[this.session.currentUser.id] = point;
     } else {
       delete this.session.votingRound.votes[this.session.currentUser.id];
@@ -56,12 +59,16 @@ export class SessionPanelComponent {
   }
 
   ngOnInit() {
-    this.connection = this.sessionService.getSession('123').subscribe(session => {
-      this.session = session;
-    })
+    this.paramsSub = this.route.params.subscribe( params => {
+      let id = params['id'];
+      this.sessionSub = this.sessionService.getSession(id).subscribe((session: Session) => {
+        this.session = session;
+      })
+    });
   }
   
   ngOnDestroy() {
-    this.connection.unsubscribe();
+    this.paramsSub.unsubscribe();
+    this.sessionSub.unsubscribe();
   }
 }
